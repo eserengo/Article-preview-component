@@ -1,0 +1,193 @@
+:root {
+  font-size: 13px;
+  font-weight: 500;
+  /*--- color palette ---*/
+  --white: hsl(0, 0%, 100%);
+  --blue: hsl(240, 100%, 50%);
+  --very-dark-grayish-blue: hsl(217, 19%, 35%);
+  --desaturated-dark-blue: hsl(214, 17%, 51%);
+  --grayish-blue: hsl(212, 23%, 69%);
+  --light-grayish-blue: hsl(210, 46%, 95%);
+}
+
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.inactive {
+  display: none !important;
+}
+
+body {
+  background-color: var(--light-grayish-blue);
+  font-family: "Manrope";
+  min-width: 20rem;
+}
+
+.card {
+  background-color: var(--white);
+  display: grid;
+  grid-template: repeat(12, 1fr) / repeat(8, 1fr);
+  border-radius: 1rem;
+  max-width: 27rem;
+  max-height: 95vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.img-container {
+  grid-column: 1 / -1;
+  grid-row: 1 / span 4;
+}
+
+.img-container > img {
+  width: 27rem;
+  max-height: 15rem;
+  object-fit: cover;
+}
+
+.text-container {
+  grid-column: 2 / 8;
+  grid-row: 6 / span 5;
+}
+
+.text-container > span:last-child {
+  color: var(--desaturated-dark-blue);
+  display: block;
+  margin-top: 1rem;
+}
+
+.text-container > span:first-child {
+  color: var(--very-dark-grayish-blue);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.author-container {
+  grid-column: 2 / 8;
+  grid-row: 11;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.fa {
+  overflow: visible;
+}
+
+i.fa.fa-share::before {
+  background-color: var(--light-grayish-blue);
+  color: var(--desaturated-dark-blue);
+  font-size: 1.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.author-container > span {
+  color: var(--grayish-blue);
+}
+
+.author-container > span > strong {
+  color: var(--very-dark-grayish-blue);
+}
+
+#avatar {
+  border-radius: 50%;
+  max-width: 12%;
+}
+
+.popup {
+  background-color: var(--very-dark-grayish-blue);
+  color: var(--white);
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  user-select: none;
+}
+
+.popup > span {
+  text-transform: uppercase;
+  color: var(--grayish-blue);
+  font-size: 1rem;
+  letter-spacing: 0.2rem;
+}
+
+i.fa.fa-facebook::before {
+  background-color: var(--white);
+  color: var(--very-dark-grayish-blue);
+
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.attribution > a {
+  color: var(--blue);
+}
+
+@media screen and (width>425px) {
+  .card {
+    display: grid;
+    grid-template: repeat(12, 1fr) / repeat(12, 1fr);
+    max-width: 60rem;
+    max-height: 23rem;
+  }
+  .img-container {
+    grid-column: 1 / span 4;
+    grid-row: 1 / -1;
+  }
+  .img-container > img {
+    width: 20rem;
+    min-height: 23rem;
+    object-fit: cover;
+  }
+  .text-container {
+    grid-column: 6 / span 6;
+    grid-row: 2 / span 7;
+    overflow: visible;
+  }
+  .author-container {
+    grid-column: 6 / span 6;
+    grid-row: 10 / span 2;
+  }
+  .popup {
+  position: absolute;
+  bottom: 30%;
+  right: 1%;
+  width: 20rem;
+  height: 4rem;
+  font-size: 1.5rem;
+  user-select: none;
+  border-radius: 1.5rem;
+  padding-left: 2rem;
+  }
+
+  .popup::before {
+  content:"";
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-width: 2rem;
+  border-color: transparent var(--very-dark-grayish-blue) transparent transparent;
+  border-style: solid;
+  transform: rotate(-90deg);
+  }
+
+  .popup > i.fa.fa-share::before {
+    display: none;
+  }
+}
